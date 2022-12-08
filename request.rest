@@ -1,0 +1,31 @@
+GET http://localhost:3001/api/v1/questions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY3MDQ3MjkyOCwiZXhwIjoxNjcwNTU5MzI4fQ.On5gSrWgWE_d-mk-8i4FWpCTvwgsSWqNuETbyt6N0so
+
+###
+
+POST http://localhost:3001/api/v1/questions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY3MDQ3MjkyOCwiZXhwIjoxNjcwNTU5MzI4fQ.On5gSrWgWE_d-mk-8i4FWpCTvwgsSWqNuETbyt6N0so
+
+{
+  "title": "mi title question",
+  "description": "description question",
+  "categoryId": 1
+}
+
+### 
+
+GET http://localhost:3001/api/v1/answers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY3MDQ3MjkyOCwiZXhwIjoxNjcwNTU5MzI4fQ.On5gSrWgWE_d-mk-8i4FWpCTvwgsSWqNuETbyt6N0so
+
+###
+
+POST http://localhost:3001/api/v1/answers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY3MDQ3MjkyOCwiZXhwIjoxNjcwNTU5MzI4fQ.On5gSrWgWE_d-mk-8i4FWpCTvwgsSWqNuETbyt6N0so
+
+{
+  "text": "mi respuesta",
+  "questionId": 1
+}
+

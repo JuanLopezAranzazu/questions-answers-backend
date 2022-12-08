@@ -1,0 +1,25 @@
+POST http://localhost:3001/api/v1/auth
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "root123"
+}
+
+###
+
+POST http://localhost:3001/api/v1/users
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "root123"
+}
+
+### 
+
+GET http://localhost:3001/api/v1/users
+
+###
+
+GET http://localhost:3001/api/v1/users/1
