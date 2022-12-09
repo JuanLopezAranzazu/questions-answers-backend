@@ -66,7 +66,7 @@ responseRouter.put(
   validatorHandler(updateResponseSchema, "body"),
   async (req, res, next) => {
     try {
-      const { params, body } = req;
+      const { params, body, user } = req;
       const { id } = params;
       const { text, questionId } = body;
       const dataForResponse = {

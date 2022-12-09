@@ -69,7 +69,7 @@ questionRouter.put(
   validatorHandler(updateQuestionSchema, "body"),
   async (req, res, next) => {
     try {
-      const { params, body } = req;
+      const { params, body, user } = req;
       const { id } = params;
       const { title, description, categoryId } = body;
       const dataForQuestion = {
