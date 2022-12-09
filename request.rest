@@ -8,9 +8,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY3MDQ3MjkyOCwiZXhwIjoxNjcwNTU5MzI4fQ.On5gSrWgWE_d-mk-8i4FWpCTvwgsSWqNuETbyt6N0so
 
 {
-  "title": "mi title question",
-  "description": "description question",
-  "categoryId": 1
+  "title": "msfñnmsñnmsñnmsfñns adjaddabdab",
+  "description": "nadivnadbdnababa avadbadabnan",
+  "categoryId": 2
 }
 
 ### 
@@ -22,10 +22,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hb
 
 POST http://localhost:3001/api/v1/answers
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY3MDQ3MjkyOCwiZXhwIjoxNjcwNTU5MzI4fQ.On5gSrWgWE_d-mk-8i4FWpCTvwgsSWqNuETbyt6N0so
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJteSB1c2VyIiwiaWF0IjoxNjcwNTQ3NTUyLCJleHAiOjE2NzA2MzM5NTJ9.ddl8bR4DzwOTZH3oPg3LPSPf4We6kkjnKZ1ykKG8ahs
 
 {
-  "text": "mi respuesta",
+  "text": "vadñobnaobndabdaad",
   "questionId": 1
 }
 
+###
+
+POST http://localhost:3001/api/v1/categories
+Content-Type: application/json
+
+{
+  "name": "Framework nodejs"
+}
+
+###
+
+GET http://localhost:3001/api/v1/categories

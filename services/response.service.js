@@ -9,7 +9,10 @@ class ResponseService {
   findAll() {
     return new Promise((resolve, reject) => {
       this.pool.query(
-        'SELECT * FROM public."response" WHERE true',
+        `SELECT * FROM public."response" answers
+        LEFT JOIN LATERAL 
+          (SELECT to_json(users) AS user FROM public."user" users
+          WHERE users.id = answers.userId) users ON true`,
         (err, res) => {
           if (err) {
             console.log(err);
@@ -27,7 +30,11 @@ class ResponseService {
     console.log(id);
     return new Promise((resolve, reject) => {
       this.pool.query(
-        'SELECT * FROM public."response" WHERE id = $1',
+        `SELECT * FROM public."response" answers
+        LEFT JOIN LATERAL 
+          (SELECT to_json(users) AS user FROM public."user" users
+          WHERE users.id = answers.userId) users ON true
+          WHERE answers.id = $1`,
         [id],
         (err, res) => {
           if (err) {

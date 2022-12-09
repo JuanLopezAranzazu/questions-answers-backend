@@ -9,7 +9,13 @@ class CategoryService {
   findAll() {
     return new Promise((resolve, reject) => {
       this.pool.query(
-        'SELECT * FROM public."category" WHERE true',
+        `SELECT *
+        FROM   public."category" categories
+        LEFT   JOIN LATERAL (
+           SELECT json_agg(question) AS questions
+           FROM   question
+           WHERE  question.categoryId = categories.id
+           ) question ON true`,
         (err, res) => {
           if (err) {
             console.log(err);
@@ -27,7 +33,14 @@ class CategoryService {
     console.log(id);
     return new Promise((resolve, reject) => {
       this.pool.query(
-        'SELECT * FROM public."category" WHERE id = $1',
+        `SELECT *
+        FROM   public."category" categories
+        LEFT   JOIN LATERAL (
+           SELECT json_agg(question) AS questions
+           FROM   question
+           WHERE  question.categoryId = categories.id
+           ) question ON true
+           WHERE categories.id = $1`,
         [id],
         (err, res) => {
           if (err) {

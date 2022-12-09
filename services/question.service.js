@@ -15,7 +15,10 @@ class QuestionService {
            SELECT json_agg(response) AS answers
            FROM   response
            WHERE  response.questionId = questions.id
-           ) response ON true`,
+           ) response ON true
+        LEFT JOIN LATERAL 
+        (SELECT to_json(users) AS user FROM public."user" users
+        WHERE users.id = questions.userId) users ON true`,
         (err, res) => {
           if (err) {
             console.log(err);
@@ -40,7 +43,10 @@ class QuestionService {
            FROM   response
            WHERE  response.questionId = questions.id
            ) response ON true 
-           WHERE questions.id = $1`,
+        LEFT JOIN LATERAL 
+        (SELECT to_json(users) AS user FROM public."user" users
+        WHERE users.id = questions.userId) users ON true
+          WHERE questions.id = $1`,
         [id],
         (err, res) => {
           if (err) {
