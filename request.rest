@@ -1,5 +1,15 @@
 GET http://localhost:3001/api/v1/questions
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTY3MDQ3MjkyOCwiZXhwIjoxNjcwNTU5MzI4fQ.On5gSrWgWE_d-mk-8i4FWpCTvwgsSWqNuETbyt6N0so
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJteSB1c2VyIiwiaWF0IjoxNjcwOTUyMDk5LCJleHAiOjE2NzEwMzg0OTl9.Yy1xcAMVlzEMknV7frMMiIKZKg1ZqtIqrPSI8ugJ0bs
+
+###
+
+GET http://localhost:3001/api/v1/questions/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJteSB1c2VyIiwiaWF0IjoxNjcwOTUyMDk5LCJleHAiOjE2NzEwMzg0OTl9.Yy1xcAMVlzEMknV7frMMiIKZKg1ZqtIqrPSI8ugJ0bs
+
+###
+
+GET http://localhost:3001/api/v1/questions/category/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJteSB1c2VyIiwiaWF0IjoxNjcwOTUyMDk5LCJleHAiOjE2NzEwMzg0OTl9.Yy1xcAMVlzEMknV7frMMiIKZKg1ZqtIqrPSI8ugJ0bs
 
 ###
 

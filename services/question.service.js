@@ -6,6 +6,34 @@ class QuestionService {
     this.pool.on("error", (error) => console.log(error));
   }
 
+  findByCategory(categoryId) {
+    return new Promise((resolve, reject) => {
+      this.pool.query(
+        `SELECT *
+        FROM   public."question" questions
+        LEFT   JOIN LATERAL (
+           SELECT json_agg(response) AS answers
+           FROM   response
+           WHERE  response.questionId = questions.id
+           ) response ON true
+        LEFT JOIN LATERAL 
+        (SELECT to_json(users) AS user FROM public."user" users
+        WHERE users.id = questions.userId) users ON true
+        WHERE questions.categoryId = $1`,
+        [categoryId],
+        (err, res) => {
+          if (err) {
+            console.log(err);
+            reject(err);
+          } else {
+            console.log(res.rows);
+            resolve(res.rows);
+          }
+        }
+      );
+    });
+  }
+
   findAll() {
     return new Promise((resolve, reject) => {
       this.pool.query(
@@ -41,6 +69,11 @@ class QuestionService {
         LEFT   JOIN LATERAL (
            SELECT json_agg(response) AS answers
            FROM   response
+           LEFT   JOIN LATERAL (
+            SELECT to_json(users) AS user
+            FROM   public."user" users
+            WHERE  response.userId = users.id
+            ) users ON true 
            WHERE  response.questionId = questions.id
            ) response ON true 
         LEFT JOIN LATERAL 

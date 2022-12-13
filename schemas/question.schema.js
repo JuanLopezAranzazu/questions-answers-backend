@@ -21,8 +21,13 @@ const getQuestionSchema = Joi.object({
   id: id.required(),
 });
 
+const getCategorySchema = Joi.object({
+  categoryId: categoryId.required(),
+});
+
 module.exports = {
   createQuestionSchema,
   updateQuestionSchema,
   getQuestionSchema,
+  getCategorySchema,
 };

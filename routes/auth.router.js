@@ -36,6 +36,7 @@ authRouter.post("/", async (req, res, next) => {
     });
 
     res.send({
+      id: user.id,
       username: user.username,
       token,
     });

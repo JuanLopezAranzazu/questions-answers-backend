@@ -8,9 +8,27 @@ const {
   createQuestionSchema,
   updateQuestionSchema,
   getQuestionSchema,
+  getCategorySchema,
 } = require("./../schemas/question.schema");
 
 const { verifyToken } = require("./../middleware/userExtractor");
+
+questionRouter.get(
+  "/category/:categoryId",
+  verifyToken,
+  validatorHandler(getCategorySchema, "params"),
+  async (req, res, next) => {
+    try {
+      const { params } = req;
+      const { categoryId } = params;
+      console.log(categoryId);
+      const questions = await questionService.findByCategory(categoryId);
+      res.status(200).json(questions);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 questionRouter.get("/", verifyToken, async (req, res, next) => {
   try {
